@@ -1,6 +1,7 @@
 from selenium import webdriver
 import pytest
-
+import sys
+sys.path.append("../")
 @pytest.fixture
 def selenium_driver():
     driver = webdriver.Chrome(
