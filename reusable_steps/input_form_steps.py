@@ -1,4 +1,4 @@
-from page_object.AppInputForm import InputForm
+from AppInputForm import InputForm
 
 import time
 
