@@ -36,7 +36,7 @@ jobs:
       - run:
           command: cd tests
       - run:
-          command: ls             c
+          command: ls
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
