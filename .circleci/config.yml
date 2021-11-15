@@ -34,6 +34,13 @@ jobs:
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
       - run:
+<<<<<<< HEAD
+=======
+          command: cd tests
+      - run:
+          command: ls
+      - run:
+>>>>>>> c451520f0502b24644b98b2994e02135f78195c0
           name: Run tests
           # This assumes pytest is installed via the install-package step above
           command: pytest --html=./reports/report.html --self-contained-html
