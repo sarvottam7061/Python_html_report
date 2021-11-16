@@ -28,10 +28,12 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
-      - checkout 
+      - checkout
+      - run: sudo apt-get install -y xvfb 
       - run: sudo apt-get install -y zip
       - run: sudo apt-get install -y wget 
       - run: sudo apt-get install ca-certificates 
+      - run: sudo apt-get install -y libnss3-dev libasound2 libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
       - run: sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - run: sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
       - run: sudo rm google-chrome*.deb
