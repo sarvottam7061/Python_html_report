@@ -21,7 +21,7 @@ jobs:
     # The executor is the environment in which the steps below will be executed - below will use a python 3.8 container
     # Change the version below to your required version of python
     docker:
-      - image: selenium/standalone-chrome
+      - image: cimg/python:3.9
     # Checkout the code as the first step. This is a dedicated CircleCI step.
     # The python orb's install-packages step will install the dependencies from a Pipfile via Pipenv by default.
     # Here we're making sure we use just use the system-wide pip. By default it uses the project root's requirements.txt.
@@ -29,16 +29,16 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - run: sudo apt update
-      - run: sudo apt install -y software-properties-common
-      - run: sudo add-apt-repository -y ppa:deadsnakes/ppa
-      - run: sudo apt install -y python3.9
-      - run: sudo apt-get install -y python3-pip
-      - run: sudo python3.9 -m pip install --upgrade pip
+      - run: apt-get install -y xvfb 
+      - run: apt-get install -y zip
+      - run: apt-get install -y wget 
+      - run: apt-get install ca-certificates 
+      - run: apt-get install -y libnss3-dev libasound2 libxss1 libappindicator3-1 libindicator7 gconf-service libgconf-2-4 libpango1.0-0 xdg-utils fonts-liberation
+      - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - run: apt-get install -y ./google-chrome-stable_current_amd64.deb
+      - run: rm google-chrome*.deb
       - python/install-deps
-
-      - run: 
-         command: ls
+      - run: pytest --html=./reports/report.html --self-contained-html
 
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
