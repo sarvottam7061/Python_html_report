@@ -28,6 +28,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
+      - run: sudo apt-get update
       - run: sudo apt-get install -y xvfb 
       - run: sudo apt-get install -y zip
       - run: sudo apt-get install -y wget 
