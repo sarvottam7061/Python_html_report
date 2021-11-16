@@ -37,7 +37,7 @@ jobs:
       - run: sudo python3.9 -m pip install --upgrade pip
       - python/install-deps
 
-      - run: pytest --html=./reports/report.html --self-contained-html
+      - run: sudo pytest --html=./reports/report.html --self-contained-html
 
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
           # pip-dependency-file: test-requirements.txt  # if you have a different name for your requirements file, maybe one that combines your runtime and test requirements.
