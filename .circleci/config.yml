@@ -30,7 +30,6 @@ jobs:
     steps:
       - checkout
       - python/install-deps
-      - run: ls
       - run: pytest --html=./reports/report.html --self-contained-html
 
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
