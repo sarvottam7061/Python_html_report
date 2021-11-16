@@ -28,6 +28,7 @@ jobs:
     # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
     steps:
+      - checkout
       - run: sudo apt-get update
       - run: sudo apt-get install -y xvfb 
       - run: sudo apt-get install -y zip
@@ -37,7 +38,6 @@ jobs:
       - run: sudo wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - run: sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
       - run: sudo rm google-chrome*.deb
-      - checkout
       - python/install-deps
       - run: pytest --html=./reports/report.html --self-contained-html
 
