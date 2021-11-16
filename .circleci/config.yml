@@ -29,9 +29,9 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
-      - run: apt install -y python3.9
-      - run: apt-get install -y python3-pip
-      - run: python3.9 -m pip install --upgrade pip
+      - run: sudo apt install -y python3.9
+      - run: sudo apt-get install -y python3-pip
+      - run: sudo python3.9 -m pip install --upgrade pip
       - python/install-deps
 
       - run: pytest --html=./reports/report.html --self-contained-html
